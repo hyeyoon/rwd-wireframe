@@ -1,0 +1,259 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css"
+@import "config"
+@import "grid"
+@import "../LIBRARY/sass/functions"
+@import "../LIBRARY/sass/mixins"
+
+/* hidden contents */
+.skip-nav, .hidden, legend
+  background: #ccc
+  position: absolute
+  left: -9999em
+
+.skip-nav:focus
+  left: 0
+  color: #aaa
+  z-index: 10
+
+/* reset style */
+html,body,div,header,nav,section,aside,article,footer,figure,figcaption,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,fieldset
+  margin: 0
+  padding: 0
+
+input, button, select, textarea
+  font-family: inherit
+
+input, button, select, textarea
+  font-family: inherit
+
+button
+  cursor: pointer
+
+a:link, a:visited
+  color: inherit
+  text-decoration: none
+
+
+html
+  font-size: $font-size
+
+body
+  box-sizing: border-box
+  // 바디 내부의 모든 자식들에게
+  & *, & *::before, & *::after
+    box-sizing: inherit
+  font-size: 1.4rem
+  font-family: 'Nanum Gothic', sans-serif
+
+@media screen and (min-width: $break-large)
+  @while $i <= $cols-lg
+    .col-lg-#{$i}
+      width: #{($column-lg-width*$i + $gutter-lg*$j)/$container-lg-width*100%}
+    $i: $i + 1
+    $j: $j + 1
+  .col-row
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+@media screen and (min-width: $break-medium)
+  @while $i <= $cols-md
+    .col-md-#{$i}
+      // $col-gut-md: #{$column-md-width*$i - $gutter-md*$j}
+      width: #{($column-md-width*$i + $gutter-md*$j)/$container-md-width*100%}
+    $i: $i + 1
+    $j: $j + 1
+  .col-row
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+// @media screen and (max-width: $break-small)
+
+//wrapper
+.wrapper
+  // width: #{$wrapper-width}px
+  margin-right: auto
+  margin-left: auto
+
+//header
+.header
+  padding: 40px #{$content-lg-padding}px
+  width: 100%
+  height: 120px
+  display: flex
+  background: $greyish-brown
+  & ul
+    margin-top: 12px
+  & li
+    margin-left: 75px
+    display: inline-block
+    list-style: none
+    color: #fff
+    font-family: 'Spoqa Han Sans', 'Sans-serif'
+  & a:hover,
+  & a:focus
+    color: $blush
+
+.main
+  background: $light-tan
+  width: 100%
+  height: 408px
+  position: relative
+  & img
+    margin-right: auto
+    margin-left: auto
+    padding-top: 160px
+    display: block
+    cursor: pointer
+  &-btn-left,
+  &-btn-right
+    border: 0
+    width: 33px
+    height: 106px
+    position: absolute
+    top: 136px
+  &-btn-left
+    background: url(../images/arrow-left.png) no-repeat
+    left: 190px
+  &-btn-right
+    background: url(../images/arrow-right.png) no-repeat
+    right: 190px
+
+.content-list,
+.content-people,
+.contact
+  padding: 60px 180px
+  width: 100%
+  & h2
+    font-size: 2.5rem
+    font-weight: normal
+    color: #5a5e65
+  & h2::before,
+  & h2::after
+    box-sizing: border-box
+    display: inline-block
+    width: 30%
+    margin-top: 12px
+    border-top: 1px solid #8c919b
+    content: ""
+  & h2::before
+    float: left
+    margin-right: 8%
+  & h2::after
+    float: right
+
+.content-item
+  width: 300px
+  margin-top: 20px
+.content-item-img
+  width: 100%
+  background: #dadde8 url(../images/photo-img.png) no-repeat center
+  height: 216px
+
+.content-item-text
+  margin-top: 23px
+  & h3
+    font-size: 2.2rem
+    font-weight: normal
+  & p
+    font-size: 1.6rem
+    height: 95px
+    overflow: hidden
+    line-height: 1.5
+
+.content-carousel
+  padding: 0 180px
+  width: 100%
+  position: relative
+  & ul
+    position: absolute
+    bottom: 30px
+    left: 573px
+  & li
+    display: inline-block
+    list-style: none
+    bottom: 0
+    left: 700px
+    margin-left: 10px
+.carousel-btn-left,
+.carousel-btn-right
+  border: 0
+  width: 33px
+  height: 106px
+  position: absolute
+  top: 115px
+.carousel-btn-left
+  background: url(../images/arrow-left-sm.png) no-repeat
+  left: 190px
+.carousel-btn-right
+  background: url(../images/arrow-right-sm.png) no-repeat
+  right: 190px
+.content-carousel-img
+  background: $light-tan url(../images/photo-img.png) no-repeat center
+  height: 336px
+
+.content-people-list
+  display: flex
+  justify-content: flex-start
+  margin-top: 45px
+.people-img
+  margin-left: 1.9rem
+.people-intro
+  margin-left: 4rem
+  margin-top: 1.1rem
+  & h3
+    font-size: 2.2rem
+    font-weight: normal
+  & p
+    font-size: 1.6rem
+    width: 250px
+    overflow: hidden
+    line-height: 1.5
+.list-2
+  margin-top: 70px
+.list-3
+  padding-left: 1rem
+
+.map
+  width: 100%
+  height: auto
+  & img
+    margin-top: -15px
+    width: 100%
+
+.contact
+  padding-bottom: 0
+  & fieldset
+    border: 0
+  & input
+    border: 1px solid #dadee8
+    border-radius: 4px
+    padding-left: 20px
+  & h2
+.contact-name,
+.contact-email
+  height: 48px
+  margin-top: 3.2rem
+.contact-message
+  height: 240px
+  margin-top: 2.5rem
+.contact-btn
+  margin-top: 4.8rem
+  margin-left: 34%
+  color: #fff
+  width: 300px
+  height: 72px
+  border: 0
+  border-radius: 4px
+  background: $greyish-brown
+
+.footer
+  width: 100%
+  background: $light-grey
+  height: 72px
+  margin-top: 4.5rem
+  & h2
+    font-weight: normal
+    font-size: 1.6rem
+    text-align: center
+    padding-top: 28px
+    color: $greyish-brown

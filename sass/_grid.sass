@@ -1,0 +1,44 @@
+/* Grid-System 가이드 디자인 */
+#page
+  position: relative
+
+#page::before
+  content: ""
+
+#page.grid::before
+  position: absolute
+  z-index: 1000
+  top: 0
+  left: 170px
+  width: 74%
+  height: 2760px
+  background: url(../images/grid-image.png)
+
+/**
+ * --------------------------------
+ * Grid System
+ * wrapper-width: 1300px
+ * column-width: 50px
+ * gutter-width: 10px
+ * ----------------------------- */
+//media query
+$break-large: 1200px
+$break-medium: 760px
+$break-small: 480px
+
+$i: 1
+$j: 0
+//Desktop
+$column-lg-width: 60
+$gutter-lg: 20
+$wrapper-width: 1300
+$content-lg-padding: 180
+$container-lg-width: $wrapper-width - $content-lg-padding - $content-lg-padding
+$cols-lg: 12
+//Tablet
+$column-md-width: 70
+$gutter-md: 20
+$wrapper-md: 760
+$cols-md: 8
+$content-md-padding: 30
+$container-md-width: $wrapper-md - $content-md-padding - $content-md-padding
