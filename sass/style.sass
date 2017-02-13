@@ -62,7 +62,27 @@ body
   .content-carousel
     padding-left: #{$content-lg-padding}px
     padding-right: #{$content-lg-padding}px
-@media screen and (min-width: $break-medium)
+  .main
+    &-btn-left
+      left: #{$content-lg-padding/$container-lg-width*100%}
+    &-btn-right
+      right: #{$content-lg-padding/$container-lg-width*100%}
+
+  .content-list,
+  .content-people,
+  .contact
+    & h2::before,
+    & h2::after
+      width: 30%
+    & h2::before
+      margin-right: 8%
+    & h2::after
+      margin-left: 8%
+  .contact
+    & h2::before,
+    & h2::after
+      width: 40%
+@media screen and (min-width: $break-medium) and (max-width: #{$break-large}-1)
   @while $i <= $cols-md
     .col-md-#{$i}
       // $col-gut-md: #{$column-md-width*$i - $gutter-md*$j}
@@ -80,8 +100,72 @@ body
   .content-carousel
     padding-left: #{$content-md-padding}px
     padding-right: #{$content-md-padding}px
-// @media screen and (max-width: $break-small)
+  .main
+    &-btn-left
+      left: #{$content-md-padding/$container-md-width*100%}
+    &-btn-right
+      right: #{$content-md-padding/$container-md-width*100%}
 
+  .content-list,
+  .content-people,
+  .contact
+    & h2::before,
+    & h2::after
+      width: 30%
+    & h2::before
+      margin-right: 8%
+    & h2::after
+      margin-left: 8%
+  .contact
+    & h2::before,
+    & h2::after
+      width: 30%
+  & h2::before
+    margin-right: 7%
+  & h2::after
+    margin-left: 7%
+
+@media screen and (max-width: $break-small)
+  @while $i <= $cols-sm
+    .col-sm-#{$i}
+      // $col-gut-sm: #{$column-sm-width*$i - $gutter-sm*$j}
+      width: #{($column-sm-width*$i + $gutter-sm*$j)/$container-sm-width*100%}
+    $i: $i + 1
+    $j: $j + 1
+  .col-row
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+  .header,
+  .content-list,
+  .content-people,
+  .contact,
+  .content-carousel
+    padding-left: #{$content-sm-padding}px
+    padding-right: #{$content-sm-padding}px
+  .main
+    &-btn-left
+      left: #{$content-sm-padding/$container-sm-width*100%}
+    &-btn-right
+      right: #{$content-sm-padding/$container-sm-width*100%}
+
+  .content-list,
+  .content-people
+    & h2::before,
+    & h2::after
+      width: 10%
+    & h2::before
+      margin-right: 5%
+    & h2::after
+      margin-left: 5%
+  .contact
+    & h2::before,
+    & h2::after
+      width: 20%
+  & h2::before
+    margin-right: 7%
+  & h2::after
+    margin-left: 7%
 //wrapper
 .wrapper
   // width: #{$wrapper-width}px
@@ -125,13 +209,11 @@ body
     width: 33px
     height: 106px
     position: absolute
-    top: 136px
+    top: 37%
   &-btn-left
     background: url(../images/arrow-left.png) no-repeat
-    left: 190px
   &-btn-right
     background: url(../images/arrow-right.png) no-repeat
-    right: 190px
 
 .content-list,
 .content-people,
@@ -147,15 +229,9 @@ body
   & h2::after
     box-sizing: border-box
     display: inline-block
-    width: 30%
     margin-top: 12px
     border-top: 1px solid #8c919b
     content: ""
-  & h2::before
-    float: left
-    margin-right: 8%
-  & h2::after
-    float: right
 
 .content-item
   margin-top: 20px
@@ -222,10 +298,6 @@ body
     width: 250px
     overflow: hidden
     line-height: 1.5
-.list-2
-  margin-top: 70px
-.list-3
-  padding-left: 1rem
 
 .map
   width: 100%
@@ -238,10 +310,14 @@ body
   padding-bottom: 0
   & fieldset
     border: 0
-  & input
+  & input,
+  & textarea
     border: 1px solid #dadee8
     border-radius: 4px
     padding-left: 20px
+  & textarea
+    color: #a5a6a7
+    padding-top: 1em
   & h2
 .contact-name,
 .contact-email
@@ -261,7 +337,13 @@ body
   border-radius: 4px
   background: $greyish-brown
   display: block
-
+  font-size: 2rem
+  & span::before
+    content: url(../images/send-icon.png)
+    margin-right: 5%
+    display: inline-block
+    vertical-align: sub
+    margin-top: 3%
 .footer
   width: 100%
   background: $light-grey
